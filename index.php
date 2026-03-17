@@ -438,7 +438,7 @@ if ($jsonData->countryCode == 'TH') {
                     </div>
                 </div>
                 <div>
-                    <img src="images/Wound-Management-and-Care-1024x684.webp" alt="UltraMIST acoustic wave therapy for wound healing" class="rounded-lg shadow-xl w-full">
+                    <img src="images/ultramist-therapy.jpg" alt="UltraMIST acoustic wave therapy for wound healing" class="rounded-lg shadow-xl w-full">
                 </div>
             </div>
         </div>
