@@ -444,6 +444,40 @@ if ($jsonData->countryCode == 'TH') {
         </div>
     </section>
 
+    <!-- Psychological Consultation Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="images/behavioral.png" alt="Telehealth psychological consultation" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div>
+                    <h2 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">Mental Health Services</h2>
+                    <h3 class="text-3xl font-bold text-vmp-charcoal my-2">&#129504; Psychological Consultation via Telehealth</h3>
+                    <p class="text-gray-600 mb-6">Connect with our psychiatrists virtually to:</p>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Evaluate your mental health</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Review medications and treatment</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Receive personalized support and guidance</span>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-vmp-teal font-semibold italic">Confidential, convenient, and compassionate care from home.</p>
+                    <a href="#contact" class="mt-6 inline-block bg-vmp-teal text-white font-bold py-3 px-8 rounded-full hover:bg-opacity-90 transition duration-300 shadow-md">
+                        Schedule a Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20">
         <div class="container mx-auto px-6">
