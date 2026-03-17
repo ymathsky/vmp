@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ymathsky/public_html/
+    - export DEPLOYPATH=/home2/visitin1/public_html/
     - /bin/cp -R $OLDPWD/. $DEPLOYPATH
