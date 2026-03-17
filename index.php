@@ -449,7 +449,7 @@ if ($jsonData->countryCode == 'TH') {
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="images/behavioral.png" alt="Telehealth psychological consultation" class="rounded-lg shadow-xl w-full">
+                    <img src="images/telehealth-psych.svg" alt="Telehealth psychological consultation" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div>
                     <h2 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">Mental Health Services</h2>
