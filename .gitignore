@@ -1,0 +1,23 @@
+# Sensitive configuration — never commit real credentials
+config.php
+
+# PHP dependencies (run `composer install` on the server instead)
+/vendor/
+
+# Composer lock is intentionally kept for reproducible builds
+# composer.lock  ← keep this committed
+
+# Archives / temp files
+*.zip
+*.tar.gz
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
+
+# XAMPP / local dev files
+*.log

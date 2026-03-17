@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Visiting Medical Physicians Inc.</title>
+    <link rel="shortcut icon" type="image/png" href="images/vmp.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'vmp-teal': '#008C8C',
+                        'vmp-lime': '#57D131',
+                        'vmp-deep-teal': '#005064',
+                        'vmp-magenta': '#D81B60',
+                        'vmp-charcoal': '#4C3F58',
+                        'vmp-light-bg': '#F0F4F7',
+                        'vmp-lavender': '#E9D5FF',
+                        'vmp-lavender-dark': '#C084FC',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-vmp-light-bg text-vmp-charcoal antialiased flex flex-col min-h-screen">
+
+<!-- Header -->
+<header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 left-0 right-0 z-50 shadow-md">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center space-x-2">
+            <div class="p-2 bg-vmp-teal rounded-full">
+                <img src="images/vmp.png" width="50" height="50" alt="VMP Logo">
+            </div>
+            <span class="text-xl font-bold text-vmp-charcoal">Visiting Medical Physicians Inc.</span>
+        </a>
+    </div>
+</header>
+
+<main class="flex-grow">
+    <!-- Thank You Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-2xl mx-auto">
+                <svg class="w-24 h-24 mx-auto text-vmp-lime" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h1 class="text-4xl md:text-5xl font-bold text-vmp-charcoal leading-tight mt-6">
+                    Thank You!
+                </h1>
+                <p class="mt-4 text-lg text-gray-600">
+                    Your inquiry has been successfully submitted. We appreciate you contacting us and will get back to you as soon as possible.
+                </p>
+                <a href="index.php" class="mt-10 inline-block bg-vmp-teal text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
+                    Return to Homepage
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-vmp-deep-teal text-white mt-auto">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <p>&copy; 2025 Visiting Medical Physicians Inc. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
