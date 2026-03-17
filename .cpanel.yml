@@ -2,4 +2,5 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home2/visitin1/public_html/
-    - /bin/cp -R $OLDPWD/. $DEPLOYPATH
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp -R $(pwd)/. $DEPLOYPATH
