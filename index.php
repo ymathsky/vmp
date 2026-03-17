@@ -405,6 +405,45 @@ if ($jsonData->countryCode == 'TH') {
         </div>
     </section>
 
+    <!-- UltraMIST Therapy Section -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">Advanced Technology</h2>
+                    <h3 class="text-3xl font-bold text-vmp-charcoal my-2">UltraMIST Therapy</h3>
+                    <p class="text-gray-600 mb-4">
+                        Visiting Medical Physicians is excited to provide Ultramist Therapy for patients suffering from challenging wounds, lesions, and ulcers.
+                    </p>
+                    <p class="text-gray-600">
+                        The UltraMIST System's acoustic wave therapy promotes healing by controlling inflammation and reducing bacteria in the wound bed while increasing angiogenesis. Further promoting healing, it increases perfusion through vasodilation, ultimately increasing oxygen and nutrients to the tissue.
+                    </p>
+                    <div class="mt-6 space-y-3">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Controls inflammation in the wound bed</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Reduces bacteria &amp; promotes angiogenesis</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Increases perfusion through vasodilation</span>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-vmp-lime mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span class="text-gray-600">Delivers increased oxygen &amp; nutrients to tissue</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="images/Wound-Management-and-Care-1024x684.webp" alt="UltraMIST acoustic wave therapy for wound healing" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-20">
         <div class="container mx-auto px-6">
