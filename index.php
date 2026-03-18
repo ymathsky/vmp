@@ -153,14 +153,12 @@ if ($jsonData->countryCode == 'TH') {
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
                         'vmp-teal': '#008C8C',
                         'vmp-lime': '#57D131',
@@ -176,93 +174,145 @@ if ($jsonData->countryCode == 'TH') {
         }
     </script>
     <style>
-        /* Additional style for subtle shadow on the header when scrolling */
-        .header-shadow {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-        .tab-button.active {
-            background-color: #008C8C; /* vmp-magenta */
-            color: white;
-        }
+        .header-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .tab-button.active { background-color: #008C8C; color: white; box-shadow: 0 4px 14px rgba(0,140,140,0.3); }
+        .tab-button:not(.active):hover { background-color: #e2f5f5; color: #008C8C; }
+        .fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .stat-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,140,140,0.15); }
+        .service-item { transition: background 0.2s ease; border-radius: 10px; padding: 10px 12px; }
+        .service-item:hover { background: #f0fafa; }
+        .hero-gradient { background: linear-gradient(135deg, #ffffff 0%, #e8f8f8 50%, #f0f4f7 100%); }
+        .section-divider { height: 4px; background: linear-gradient(90deg, #008C8C, #57D131, #005064); border-radius: 2px; }
+        .testimonial-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .nav-link-active { color: #008C8C; font-weight: 600; }
+        #scroll-top { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        #scroll-top.show { opacity: 1; pointer-events: auto; }
     </style>
 </head>
 <body class="bg-vmp-light-bg text-vmp-charcoal antialiased">
 
 <!-- Header -->
-<header id="header" class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-shadow duration-300">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<header id="header" class="bg-white/90 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-gray-100">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
         <!-- Logo -->
-        <a href="#" class="flex items-center space-x-2">
-            <div class="p-2 bg-vmp-teal rounded-full">
-                <img src="images/vmp.png" width="50" height="50">      </div>
-            <span class="text-xl font-bold text-vmp-charcoal">Visiting Medical Physicians Inc.</span>
+        <a href="#home" class="flex items-center space-x-3">
+            <div class="p-1.5 bg-vmp-teal rounded-full shadow-md">
+                <img src="images/vmp.png" width="44" height="44" alt="VMP Logo">
+            </div>
+            <div>
+                <span class="text-lg font-extrabold text-vmp-charcoal leading-none block">Visiting Medical</span>
+                <span class="text-sm font-medium text-vmp-teal leading-none">Physicians Inc.</span>
+            </div>
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8">
-            <a href="#home" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">Home</a>
-            <a href="#mission" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">Our Mission</a>
-            <a href="#about" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">About Us</a>
-            <a href="#services" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">Services</a>
-            <a href="#testimonials" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">Testimonials</a>
-            <a href="#contact" class="text-vmp-charcoal hover:text-vmp-teal transition duration-300">Contact</a>
+        <nav class="hidden md:flex items-center space-x-1">
+            <a href="#home" class="px-4 py-2 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 transition duration-200 font-medium text-sm">Home</a>
+            <a href="#mission" class="px-4 py-2 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 transition duration-200 font-medium text-sm">Our Mission</a>
+            <a href="#about" class="px-4 py-2 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 transition duration-200 font-medium text-sm">About Us</a>
+            <a href="#services" class="px-4 py-2 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 transition duration-200 font-medium text-sm">Services</a>
+            <a href="#testimonials" class="px-4 py-2 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 transition duration-200 font-medium text-sm">Testimonials</a>
+            <a href="#contact" class="ml-2 px-5 py-2 bg-vmp-teal text-white rounded-full text-sm font-semibold hover:bg-opacity-90 transition duration-200 shadow-md">Contact Us</a>
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button" class="md:hidden">
-            <svg class="w-6 h-6 text-vmp-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition">
+            <svg class="w-6 h-6 text-vmp-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
         </button>
     </div>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-        <a href="#home" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">Home</a>
-        <a href="#mission" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">Our Mission</a>
-        <a href="#about" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">About Us</a>
-        <a href="#services" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">Services</a>
-        <a href="#testimonials" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">Testimonials</a>
-        <a href="#contact" class="block py-2 text-vmp-charcoal hover:text-vmp-teal">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4 space-y-1">
+        <a href="#home" class="block py-2.5 px-4 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 font-medium">Home</a>
+        <a href="#mission" class="block py-2.5 px-4 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 font-medium">Our Mission</a>
+        <a href="#about" class="block py-2.5 px-4 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 font-medium">About Us</a>
+        <a href="#services" class="block py-2.5 px-4 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 font-medium">Services</a>
+        <a href="#testimonials" class="block py-2.5 px-4 rounded-lg text-vmp-charcoal hover:text-vmp-teal hover:bg-teal-50 font-medium">Testimonials</a>
+        <a href="#contact" class="block py-2.5 px-4 bg-vmp-teal text-white rounded-lg font-semibold text-center mt-2">Contact Us</a>
     </div>
 </header>
 
 <main>
     <!-- Hero Section -->
-    <section id="home" class="pt-24 md:pt-32 pb-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-vmp-charcoal leading-tight">
-                Compassionate Medical Care, <br class="hidden md:block"> in the Comfort of Your Home.
+    <section id="home" class="hero-gradient pt-28 md:pt-36 pb-20 overflow-hidden relative">
+        <!-- Decorative circles -->
+        <div class="absolute top-10 right-10 w-64 h-64 bg-vmp-teal opacity-5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-vmp-lime opacity-5 rounded-full blur-3xl"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <span class="inline-block bg-teal-50 text-vmp-teal text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-teal-200">
+                &#127968; In-Home Medical Care &bull; Chicagoland Area
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-vmp-charcoal leading-tight max-w-4xl mx-auto">
+                Compassionate Medical Care,<br class="hidden md:block"> <span class="text-vmp-teal">in the Comfort of Your Home.</span>
             </h1>
-            <p class="mt-6 text-lg text-gray-600 max-w-3xl mx-auto">
-                Visiting Medical Physicians Inc. brings comprehensive and personalized healthcare services directly to you. We are dedicated to providing expert medical attention with the convenience and comfort you deserve.
+            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                Visiting Medical Physicians Inc. brings comprehensive and personalized healthcare services directly to you — with the compassion and expertise you deserve.
             </p>
-            <a href="#contact" class="mt-10 inline-block bg-vmp-teal text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
-                Schedule an Appointment
-            </a>
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="inline-block bg-vmp-teal text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
+                    Schedule an Appointment
+                </a>
+                <a href="#services" class="inline-block bg-white text-vmp-teal font-bold py-4 px-10 rounded-full text-lg border-2 border-vmp-teal hover:bg-teal-50 transition duration-300 shadow-sm">
+                    Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <section class="bg-vmp-deep-teal py-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
+                    <p class="text-3xl font-extrabold text-white">25+</p>
+                    <p class="text-teal-200 text-sm mt-1 font-medium">Years of Experience</p>
+                </div>
+                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
+                    <p class="text-3xl font-extrabold text-white">1,000+</p>
+                    <p class="text-teal-200 text-sm mt-1 font-medium">Patients Served</p>
+                </div>
+                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
+                    <p class="text-3xl font-extrabold text-white">18+</p>
+                    <p class="text-teal-200 text-sm mt-1 font-medium">Insurance Plans</p>
+                </div>
+                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
+                    <p class="text-3xl font-extrabold text-white">24/7</p>
+                    <p class="text-teal-200 text-sm mt-1 font-medium">Patient Support</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Our Mission Section -->
-    <section id="mission" class="py-20">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="images/tablet-screen-contents.png" alt="A team of professional and compassionate doctors" class="rounded-lg shadow-xl w-full">
+    <section id="mission" class="py-24 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="fade-in relative">
+                <div class="absolute -top-4 -left-4 w-24 h-24 bg-teal-100 rounded-full opacity-60"></div>
+                <img src="images/tablet-screen-contents.png" alt="A team of professional and compassionate doctors" class="rounded-2xl shadow-2xl w-full relative z-10">
+                <div class="absolute -bottom-4 -right-4 w-16 h-16 bg-vmp-lime rounded-full opacity-40"></div>
             </div>
-            <div class="text-left">
-                <h3 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">At Visiting Medical Physician</h3>
-                <h2 class="text-3xl font-bold text-vmp-charcoal my-2">Our Mission</h2>
-                <p class="text-gray-600">
-                    At VMP we are dedicated to providing exceptional, patient-centered care with utmost compassion & professionalism. With a team of experienced healthcare professionals, we ensure personalized attention, comfort, and convenience, bringing expert care directly to you. Let us help you achieve better health and overall wellness with a trusted and compassionate approach.
+            <div class="text-left fade-in">
+                <span class="inline-block bg-yellow-50 text-yellow-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-200 mb-4">At Visiting Medical Physician</span>
+                <h2 class="text-4xl font-extrabold text-vmp-charcoal mb-4">Our Mission</h2>
+                <div class="section-divider w-16 mb-6"></div>
+                <p class="text-gray-600 leading-relaxed text-lg">
+                    At VMP we are dedicated to providing exceptional, patient-centered care with utmost compassion &amp; professionalism. With a team of experienced healthcare professionals, we ensure personalized attention, comfort, and convenience, bringing expert care directly to you.
                 </p>
+                <div class="mt-8 grid grid-cols-2 gap-4">
+                    <div class="bg-teal-50 rounded-xl p-4 border border-teal-100">
+                        <p class="text-vmp-teal font-bold text-lg">&#10024; Expert Care</p>
+                        <p class="text-gray-500 text-sm mt-1">Led by clinicians with 25+ years experience</p>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-4 border border-green-100">
+                        <p class="text-green-600 font-bold text-lg">&#127968; Home Visits</p>
+                        <p class="text-gray-500 text-sm mt-1">We come to you, wherever you call home</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
-    <ul style="list-style-type: none; margin: 0; padding: 0;">
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://www.urmadsolutions.com/">Visi Muda</a></li>
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://saliayi.com/">Saliayi</a></li>
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://royailstar.com/">Mimi Games</a></li>
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://thetinywife.com/">Gadget Eye</a></li>
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://cost-transforming-audiences.eu/">Game Gear</a></li>
-<li><a style="color: #ffffff00; font-size: 1pt; line-height: 2pt; height: auto; position: absolute;" href="https://ltccloudmining.net/">BlockTrend</a></li>
-</ul>
 
     <!-- About Us Section -->
     <section id="about" class="py-20 bg-white">
@@ -351,10 +401,12 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-24 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-vmp-charcoal">Our Services</h2>
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block bg-teal-50 text-vmp-teal text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-teal-200 mb-4">What We Offer</span>
+                <h2 class="text-4xl font-extrabold text-vmp-charcoal">Our Services</h2>
+                <div class="section-divider w-16 mx-auto mt-4"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -406,7 +458,7 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- UltraMIST Therapy Section -->
-    <section class="py-20">
+    <section class="py-24 bg-vmp-light-bg">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -445,7 +497,7 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Psychological Consultation Section -->
-    <section class="py-20 bg-white">
+    <section class="py-24 bg-white">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -479,22 +531,39 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20">
+    <section id="testimonials" class="py-24 bg-vmp-light-bg">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-vmp-charcoal">What Our Patients Say</h2>
-                <p class="text-gray-600 mt-2">Your health and trust are our greatest rewards.</p>
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block bg-yellow-50 text-yellow-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-200 mb-4">Patient Stories</span>
+                <h2 class="text-4xl font-extrabold text-vmp-charcoal">What Our Patients Say</h2>
+                <div class="section-divider w-16 mx-auto mt-4"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Testimonial Card 1 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <p class="text-gray-600 italic mb-4">"The care and attention I received from Visiting Medical Physicians was outstanding. They are not just doctors; they are partners in my health. Having them come to my home has been a true blessing."</p>
-                    <p class="font-bold text-vmp-charcoal">- Mary S.</p>
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 fade-in">
+                    <div class="flex text-yellow-400 mb-4 text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <svg class="w-8 h-8 text-teal-100 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"The care and attention I received from Visiting Medical Physicians was outstanding. They are not just doctors; they are partners in my health. Having them come to my home has been a true blessing."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-vmp-teal rounded-full flex items-center justify-center text-white font-bold mr-3">M</div>
+                        <div>
+                            <p class="font-bold text-vmp-charcoal">Mary S.</p>
+                            <p class="text-sm text-gray-400">Patient</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Testimonial Card 2 -->
-                <div class="bg-white p-8 rounded-lg shadow-lg">
-                    <p class="text-gray-600 italic mb-4">"I can't thank the team enough. They are professional, punctual, and incredibly compassionate. It's a relief to know my father is in such good hands without the stress of traveling to a clinic."</p>
-                    <p class="font-bold text-vmp-charcoal">- John D.</p>
+                <div class="testimonial-card bg-white p-8 rounded-2xl shadow-md border border-gray-100 fade-in">
+                    <div class="flex text-yellow-400 mb-4 text-xl">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <svg class="w-8 h-8 text-teal-100 mb-3" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"I can't thank the team enough. They are professional, punctual, and incredibly compassionate. It's a relief to know my father is in such good hands without the stress of traveling to a clinic."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-vmp-deep-teal rounded-full flex items-center justify-center text-white font-bold mr-3">J</div>
+                        <div>
+                            <p class="font-bold text-vmp-charcoal">John D.</p>
+                            <p class="text-sm text-gray-400">Family Member</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -555,21 +624,75 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 </main>
 
+<!-- Scroll to Top Button -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 z-50 bg-vmp-teal text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-vmp-deep-teal transition duration-300">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+</button>
+
 <!-- Footer -->
 <footer class="bg-vmp-deep-teal text-white">
-    <div class="container mx-auto px-6 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2025 Visiting Medical Physicians Inc. All Rights Reserved.</p>
-            <div class="flex space-x-4 mt-4 md:mt-0">
-                <!-- Replace with your actual social media links -->
-
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center space-x-3 mb-4">
+                    <div class="p-1.5 bg-white/20 rounded-full">
+                        <img src="images/vmp.png" width="40" height="40" alt="VMP Logo">
+                    </div>
+                    <div>
+                        <p class="font-extrabold text-white">Visiting Medical Physicians</p>
+                        <p class="text-teal-300 text-sm">Compassionate Care at Home</p>
+                    </div>
+                </div>
+                <p class="text-teal-200 text-sm leading-relaxed">Bringing expert, personalized healthcare directly to you across the Chicagoland area.</p>
             </div>
+            <!-- Quick Links -->
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase tracking-wide text-sm">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#home" class="text-teal-200 hover:text-white transition text-sm">Home</a></li>
+                    <li><a href="#mission" class="text-teal-200 hover:text-white transition text-sm">Our Mission</a></li>
+                    <li><a href="#services" class="text-teal-200 hover:text-white transition text-sm">Services</a></li>
+                    <li><a href="#contact" class="text-teal-200 hover:text-white transition text-sm">Contact Us</a></li>
+                </ul>
+            </div>
+            <!-- Contact -->
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase tracking-wide text-sm">Contact</h4>
+                <ul class="space-y-2 text-teal-200 text-sm">
+                    <li>&#128205; 1340 Remington RD, Suite M<br>&nbsp;&nbsp;&nbsp;&nbsp; Schaumburg, IL 60173</li>
+                    <li>&#128222; 847.252.1858</li>
+                    <li>&#9993; care@visitingmedicalphysician.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/20 pt-6 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-teal-300 text-sm">&copy; 2026 Visiting Medical Physicians Inc. All Rights Reserved.</p>
+            <p class="text-teal-400 text-xs mt-2 md:mt-0">Serving the Chicagoland Area with Compassion</p>
         </div>
     </div>
 </footer>
 
 <script>
-    // JavaScript for mobile menu toggle
+    // Scroll to top button
+    const scrollTopBtn = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) scrollTopBtn.classList.add('show');
+        else scrollTopBtn.classList.remove('show');
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Header shadow on scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('header').classList.toggle('header-shadow', window.scrollY > 10);
+    });
+
+    // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
 
