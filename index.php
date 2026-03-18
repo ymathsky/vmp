@@ -174,6 +174,7 @@ if ($jsonData->countryCode == 'TH') {
         }
     </script>
     <style>
+        html, body { overflow-x: hidden; max-width: 100%; }
         .header-shadow { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         .tab-button.active { background-color: #008C8C; color: white; box-shadow: 0 4px 14px rgba(0,140,140,0.3); }
         .tab-button:not(.active):hover { background-color: #e2f5f5; color: #008C8C; }
@@ -190,6 +191,10 @@ if ($jsonData->countryCode == 'TH') {
         .nav-link-active { color: #008C8C; font-weight: 600; }
         #scroll-top { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
         #scroll-top.show { opacity: 1; pointer-events: auto; }
+        /* Mobile tab scroll */
+        .tab-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .tab-scroll::-webkit-scrollbar { display: none; }
+        img { max-width: 100%; height: auto; }
     </style>
 </head>
 <body class="bg-vmp-light-bg text-vmp-charcoal antialiased">
@@ -237,24 +242,24 @@ if ($jsonData->countryCode == 'TH') {
 <main>
     <!-- Hero Section -->
     <section id="home" class="hero-gradient pt-28 md:pt-36 pb-20 overflow-hidden relative">
-        <!-- Decorative circles -->
-        <div class="absolute top-10 right-10 w-64 h-64 bg-vmp-teal opacity-5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-vmp-lime opacity-5 rounded-full blur-3xl"></div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <span class="inline-block bg-teal-50 text-vmp-teal text-sm font-semibold px-4 py-1.5 rounded-full mb-6 border border-teal-200">
+        <!-- Decorative circles (hidden on mobile to prevent overflow) -->
+        <div class="hidden sm:block absolute top-10 right-10 w-48 md:w-64 h-48 md:h-64 bg-vmp-teal opacity-5 rounded-full blur-3xl"></div>
+        <div class="hidden sm:block absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-vmp-lime opacity-5 rounded-full blur-3xl"></div>
+        <div class="container mx-auto px-4 sm:px-6 text-center relative z-10">
+            <span class="inline-flex items-center justify-center bg-teal-50 text-vmp-teal text-xs sm:text-sm font-semibold px-3 sm:px-4 py-1.5 rounded-full mb-6 border border-teal-200 max-w-xs sm:max-w-none mx-auto">
                 &#127968; In-Home Medical Care &bull; Chicagoland Area
             </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-vmp-charcoal leading-tight max-w-4xl mx-auto">
-                Compassionate Medical Care,<br class="hidden md:block"> <span class="text-vmp-teal">in the Comfort of Your Home.</span>
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold text-vmp-charcoal leading-tight max-w-4xl mx-auto">
+                Compassionate Medical Care,<br class="hidden sm:block"> <span class="text-vmp-teal">in the Comfort of Your Home.</span>
             </h1>
-            <p class="mt-6 text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p class="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                 Visiting Medical Physicians Inc. brings comprehensive and personalized healthcare services directly to you — with the compassion and expertise you deserve.
             </p>
-            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#contact" class="inline-block bg-vmp-teal text-white font-bold py-4 px-10 rounded-full text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
+            <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-2 sm:px-0">
+                <a href="#contact" class="block sm:inline-block bg-vmp-teal text-white font-bold py-4 px-8 rounded-full text-base sm:text-lg hover:bg-opacity-90 transition duration-300 transform hover:scale-105 shadow-lg">
                     Schedule an Appointment
                 </a>
-                <a href="#services" class="inline-block bg-white text-vmp-teal font-bold py-4 px-10 rounded-full text-lg border-2 border-vmp-teal hover:bg-teal-50 transition duration-300 shadow-sm">
+                <a href="#services" class="block sm:inline-block bg-white text-vmp-teal font-bold py-4 px-8 rounded-full text-base sm:text-lg border-2 border-vmp-teal hover:bg-teal-50 transition duration-300 shadow-sm">
                     Our Services
                 </a>
             </div>
@@ -262,32 +267,32 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Stats Strip -->
-    <section class="bg-vmp-deep-teal py-10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
-                    <p class="text-3xl font-extrabold text-white">25+</p>
-                    <p class="text-teal-200 text-sm mt-1 font-medium">Years of Experience</p>
+    <section class="bg-vmp-deep-teal py-8 sm:py-10">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-center">
+                <div class="stat-card bg-white/10 rounded-xl py-5 px-3 sm:px-4">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white">25+</p>
+                    <p class="text-teal-200 text-xs sm:text-sm mt-1 font-medium">Years of Experience</p>
                 </div>
-                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
-                    <p class="text-3xl font-extrabold text-white">1,000+</p>
-                    <p class="text-teal-200 text-sm mt-1 font-medium">Patients Served</p>
+                <div class="stat-card bg-white/10 rounded-xl py-5 px-3 sm:px-4">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white">1,000+</p>
+                    <p class="text-teal-200 text-xs sm:text-sm mt-1 font-medium">Patients Served</p>
                 </div>
-                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
-                    <p class="text-3xl font-extrabold text-white">18+</p>
-                    <p class="text-teal-200 text-sm mt-1 font-medium">Insurance Plans</p>
+                <div class="stat-card bg-white/10 rounded-xl py-5 px-3 sm:px-4">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white">18+</p>
+                    <p class="text-teal-200 text-xs sm:text-sm mt-1 font-medium">Insurance Plans</p>
                 </div>
-                <div class="stat-card bg-white/10 rounded-xl py-6 px-4">
-                    <p class="text-3xl font-extrabold text-white">24/7</p>
-                    <p class="text-teal-200 text-sm mt-1 font-medium">Patient Support</p>
+                <div class="stat-card bg-white/10 rounded-xl py-5 px-3 sm:px-4">
+                    <p class="text-2xl sm:text-3xl font-extrabold text-white">24/7</p>
+                    <p class="text-teal-200 text-xs sm:text-sm mt-1 font-medium">Patient Support</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Our Mission Section -->
-    <section id="mission" class="py-24 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+    <section id="mission" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div class="fade-in relative">
                 <div class="absolute -top-4 -left-4 w-24 h-24 bg-teal-100 rounded-full opacity-60"></div>
                 <img src="images/tablet-screen-contents.png" alt="A team of professional and compassionate doctors" class="rounded-2xl shadow-2xl w-full relative z-10">
@@ -315,22 +320,22 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="about" class="py-16 sm:py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center max-w-4xl mx-auto">
                 <h2 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">About Us</h2>
-                <p class="mt-2 text-3xl md:text-4xl font-bold text-vmp-charcoal">
+                <p class="mt-2 text-2xl sm:text-3xl md:text-4xl font-bold text-vmp-charcoal">
                     At VMP, we're here to provide the care, support, and dedication you deserve, wherever you call home.
                 </p>
             </div>
 
-            <div class="mt-16 flex flex-col md:flex-row gap-8 md:gap-12">
-                <!-- Tab Buttons -->
-                <div class="flex md:flex-col md:w-1/4">
-                    <button data-tab="why-vmp" class="tab-button active text-left w-full p-4 rounded-lg text-lg font-semibold transition-colors duration-300">Why VMP?</button>
-                    <button data-tab="areas" class="tab-button text-left w-full p-4 rounded-lg text-lg font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200">Areas of Service</button>
-                    <button data-tab="team" class="tab-button text-left w-full p-4 rounded-lg text-lg font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200">Our Team</button>
-                    <button data-tab="insurances" class="tab-button text-left w-full p-4 rounded-lg text-lg font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200">Insurances</button>
+            <div class="mt-10 sm:mt-16 flex flex-col md:flex-row gap-6 md:gap-12">
+                <!-- Tab Buttons: horizontal scroll on mobile, vertical on desktop -->
+                <div class="tab-scroll md:overflow-visible flex md:flex-col md:w-1/4 gap-2">
+                    <button data-tab="why-vmp" class="tab-button active flex-shrink-0 md:flex-shrink text-left w-auto md:w-full p-3 sm:p-4 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-300 whitespace-nowrap md:whitespace-normal">Why VMP?</button>
+                    <button data-tab="areas" class="tab-button flex-shrink-0 md:flex-shrink text-left w-auto md:w-full p-3 sm:p-4 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200 whitespace-nowrap md:whitespace-normal">Areas of Service</button>
+                    <button data-tab="team" class="tab-button flex-shrink-0 md:flex-shrink text-left w-auto md:w-full p-3 sm:p-4 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200 whitespace-nowrap md:whitespace-normal">Our Team</button>
+                    <button data-tab="insurances" class="tab-button flex-shrink-0 md:flex-shrink text-left w-auto md:w-full p-3 sm:p-4 rounded-lg text-sm sm:text-base font-semibold transition-colors duration-300 bg-vmp-light-bg hover:bg-gray-200 whitespace-nowrap md:whitespace-normal">Insurances</button>
                 </div>
 
                 <!-- Tab Content -->
@@ -401,8 +406,8 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
+    <section id="services" class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="text-center mb-16 fade-in">
                 <span class="inline-block bg-teal-50 text-vmp-teal text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-teal-200 mb-4">What We Offer</span>
                 <h2 class="text-4xl font-extrabold text-vmp-charcoal">Our Services</h2>
@@ -458,8 +463,8 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- UltraMIST Therapy Section -->
-    <section class="py-24 bg-vmp-light-bg">
-        <div class="container mx-auto px-6">
+    <section class="py-16 sm:py-24 bg-vmp-light-bg">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-base font-semibold text-yellow-500 tracking-wide uppercase">Advanced Technology</h2>
@@ -497,8 +502,8 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Psychological Consultation Section -->
-    <section class="py-24 bg-white">
-        <div class="container mx-auto px-6">
+    <section class="py-16 sm:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <img src="images/telehealth-psych.svg" alt="Telehealth psychological consultation" class="rounded-lg shadow-xl w-full">
@@ -531,11 +536,11 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-24 bg-vmp-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 fade-in">
+    <section id="testimonials" class="py-16 sm:py-24 bg-vmp-light-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16 fade-in">
                 <span class="inline-block bg-yellow-50 text-yellow-600 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider border border-yellow-200 mb-4">Patient Stories</span>
-                <h2 class="text-4xl font-extrabold text-vmp-charcoal">What Our Patients Say</h2>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-vmp-charcoal">What Our Patients Say</h2>
                 <div class="section-divider w-16 mx-auto mt-4"></div>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
@@ -570,10 +575,10 @@ if ($jsonData->countryCode == 'TH') {
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-vmp-light-bg">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-vmp-charcoal">Get In Touch</h2>
+    <section id="contact" class="py-16 sm:py-20 bg-vmp-light-bg">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-vmp-charcoal">Get In Touch</h2>
                 <p class="text-gray-600 mt-2">We're here to help. Reach out to schedule a visit or learn more.</p>
             </div>
             <div class="grid lg:grid-cols-2 gap-12">
@@ -582,9 +587,9 @@ if ($jsonData->countryCode == 'TH') {
                     <div class="bg-white p-8 rounded-lg shadow-md mb-8">
                         <h3 class="text-xl font-semibold text-vmp-charcoal mb-4">Contact Information</h3>
                         <div class="space-y-4">
-                            <p class="flex items-center"><svg class="w-6 h-6 text-vmp-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> 1340 Remington RD, Suite M, Schaumburg, IL 60173</p>
-                            <p class="flex items-center"><svg class="w-6 h-6 text-vmp-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> 847.252.1858</p>
-                            <p class="flex items-center"><svg class="w-6 h-6 text-vmp-teal mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> care@visitingmedicalphysician.com</p>
+                            <p class="flex items-start sm:items-center"><svg class="w-6 h-6 text-vmp-teal mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><span>1340 Remington RD, Suite M, Schaumburg, IL 60173</span></p>
+                            <p class="flex items-center"><svg class="w-6 h-6 text-vmp-teal mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg><span>847.252.1858</span></p>
+                            <p class="flex items-center"><svg class="w-6 h-6 text-vmp-teal mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg><span class="break-all">care@visitingmedicalphysician.com</span></p>
                         </div>
                     </div>
                     <div class="rounded-lg shadow-md overflow-hidden">
@@ -625,7 +630,7 @@ if ($jsonData->countryCode == 'TH') {
 </main>
 
 <!-- Scroll to Top Button -->
-<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-8 right-8 z-50 bg-vmp-teal text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-vmp-deep-teal transition duration-300">
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-4 sm:bottom-8 sm:right-8 z-50 bg-vmp-teal text-white w-11 h-11 sm:w-12 sm:h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-vmp-deep-teal transition duration-300">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
 </button>
 
